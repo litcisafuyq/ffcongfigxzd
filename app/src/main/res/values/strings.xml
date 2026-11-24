@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">FFVN Config</string>
+    <string name="tab_overview">Tổng quan</string>
+    <string name="tab_sensitivity">Độ nhạy</string>
+    <string name="tab_hud">Bản đồ HUD</string>
+    <string name="tab_calibration">Sân tập</string>
+    <string name="action_import_json">Nạp JSON</string>
+    <string name="action_export_json">Xuất VN.json</string>
+    <string name="action_copy_path">Chép đường dẫn</string>
+    <string name="action_launch_game">Mở Free Fire VN</string>
+    <string name="action_reset_default">Khôi phục mặc định</string>
+    <string name="action_copy_sensitivity">Sao chép bảng độ nhạy</string>
+    <string name="action_refresh_telemetry">Làm mới thông số</string>
+</resources>

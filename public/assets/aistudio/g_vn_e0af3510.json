@@ -1,0 +1,214 @@
+{
+  "config_id": "VN_A17_NHETAM_V6_FINAL",
+  "build": "2026-11-24",
+  "platform": "android",
+  "package": "com.garena.ffvn",
+  "game": "Free Fire VN",
+  "root": false,
+  "install_tool": "ZArchiver",
+  "install_path": "/storage/emulated/0/Android/data/com.garena.ffvn/files/VN.json",
+  "requires_root": false,
+  "file_role": "bảng số + HUD; game không đọc file lạ, nhập tay theo file này",
+  "source": "com.dts.freefiremax.plist (Nhẹ tâm / DTN) — Sensitivity 1.7013, ScopeSensitivity_1 1.6002, ScopeSensitivity_2/4/8 2.0, AuxAimSensitivity 2.0, AimAssist 0, UseAuxAimNew 1",
+  "mechanism": "Lock = ngắm phụ ở kịch trần + kéo ngắn, KHÔNG dùng trợ ngắm",
+
+  "assist_strength": {
+    "lock_strength": 78,
+    "aim_lightness": 62,
+    "pull_multiplier": 1.25,
+    "safe_band_lock": [60, 82],
+    "safe_band_lightness": [52, 72],
+    "hard_ceiling_lock": 88,
+    "hard_ceiling_lightness": 80
+  },
+
+  "device_target": {
+    "model": "Samsung Galaxy A17 5G",
+    "ram_gb": 4,
+    "low_memory_mode": true,
+    "close_bg_before_match": true,
+    "render": {
+      "resolution": "540x1200",
+      "refresh_hz": 60,
+      "frame_ms": 16.7,
+      "dpi": 384,
+      "fps_target": 55,
+      "graphics_quality": "smooth",
+      "antialias": false,
+      "shadows": false,
+      "reduce_resolution": true,
+      "high_fps": true
+    },
+    "tick_ms": 17,
+    "thermal_guard": { "enabled": true, "reduce_after_min": 10, "pull_reduction_pct": 0.2, "step_reduction_pct": 0.3 },
+    "ram_guard": { "enabled": true, "free_ram_min_mb": 400, "drop_smoothing_steps": 6, "pause_on_ram_low": true },
+    "stutter_compensation": { "enabled": true, "frame_drop_ms": 35, "extra_pull_px": 1 }
+  },
+
+  "decision_logic": {
+    "zone_priority": ["head", "neck", "chest"],
+    "prefer_neck_when_chest_locked": true,
+    "soft_lock_on_neck_after_misses": 2,
+    "wall_check": true,
+    "ignore_knocked": true,
+    "zone_hysteresis_ms": 100,
+    "switch_penalty_ms": 60,
+    "auto_zone_by_height_ratio": true
+  },
+
+  "distance_profiles": {
+    "auto_switch": true,
+    "hysteresis_px": 6,
+    "near": { "range_m": [0, 15],  "head_anchor_px": 14, "pull_px": 14, "ramp_ms": 78,  "creep_px_s": 5.5, "cap_mult": 1.35 },
+    "mid":  { "range_m": [15, 40], "head_anchor_px": 8,  "pull_px": 8,  "ramp_ms": 92,  "creep_px_s": 2.2, "cap_mult": 1.35 },
+    "far":  { "range_m": [40, 99], "head_anchor_px": 3,  "pull_px": 3,  "ramp_ms": 115, "creep_px_s": 1.0, "cap_mult": 1.55 }
+  },
+
+  "behavior_simulation": {
+    "curve_type": "bezier_smooth_nested",
+    "friction_multiplier": 0.3,
+    "curve_on_turn_radius": 0.3,
+    "arc_velocity_cap": 300,
+    "smoothing_steps": 16,
+    "easing_in": "ease_out_quad",
+    "easing_out": "ease_in_sine",
+    "release_return_pct": 0.55,
+    "settle_ms": 130,
+    "micro_drift_enabled": true,
+    "drift_angle": 0.05,
+    "random_jitter_factor": 0.1,
+    "undershoot_pct": 0.02,
+    "reaction_latency_simulation": { "min_delay_ms": 140, "max_delay_ms": 175, "distribution_type": "gaussian_random", "skip_on_reacquire": true }
+  },
+
+  "finger_feedback": {
+    "input_shaping": {
+      "early_guard_ms": 65,
+      "late_guard_ms": 45,
+      "apex_window_ms": 100,
+      "fire_gate_enabled": true,
+      "gate_bypass_on_sniper": true,
+      "debounce_ms": 110,
+      "release_ramp_ms": 55,
+      "press_area_jitter_px": 2,
+      "double_tap_merge_ms": 90
+    },
+    "timing_learner": { "enabled": true, "sample_window_shots": 8, "learning_rate": 0.25, "max_correction_ms": 50, "reset_on_weapon_change": true, "store_last_state": true },
+    "haptic_feedback": {
+      "enabled": true,
+      "cue_on_head_lock": true,
+      "pattern_lock": [20, 45, 20],
+      "intensity_lock": 0.75,
+      "cue_on_miss": true,
+      "pattern_miss": [32],
+      "throttle_ms": 450,
+      "learn_mode_first_n_shots": 25
+    },
+    "burst_governor": { "enabled": true, "burst_len": 3, "burst_gap_ms": 145, "max_shots_per_engage": 7, "convert_hold_to_taps_on_far": true },
+    "miss_recovery": { "enabled": true, "re_pull_px": 4, "cooldown_ms": 220, "max_retries": 2 }
+  },
+
+  "controls_config": {
+    "touch_resistance": 0.3,
+    "sens_scale_native": "0-200 (hệ số plist 0.0-2.0 × 100)",
+    "sens_scale_fallback": "0-100 (chia đôi)",
+    "active_preset": "manh",
+    "presets": {
+      "manh": {
+        "note": "mặc định, sát bản gốc Thế Nhân",
+        "s200": { "general": 175, "red_dot": 160, "scope_2x": 200, "scope_4x": 200, "awm_scope": 200, "aux_aim": 200, "free_look": 15 },
+        "s100": { "general": 88, "red_dot": 80, "scope_2x": 100, "scope_4x": 100, "awm_scope": 100, "aux_aim": 100, "free_look": 8 }
+      },
+      "can_bang": {
+        "note": "khi tâm văng khi xoay người",
+        "s200": { "general": 160, "red_dot": 155, "scope_2x": 185, "scope_4x": 175, "awm_scope": 110, "aux_aim": 185, "free_look": 15 },
+        "s100": { "general": 80, "red_dot": 78, "scope_2x": 93, "scope_4x": 88, "awm_scope": 55, "aux_aim": 93, "free_look": 8 }
+      },
+      "thuan": {
+        "note": "máy nóng, pin yếu, hoặc tay mới",
+        "s200": { "general": 145, "red_dot": 145, "scope_2x": 170, "scope_4x": 160, "awm_scope": 95, "aux_aim": 170, "free_look": 15 },
+        "s100": { "general": 73, "red_dot": 73, "scope_2x": 85, "scope_4x": 80, "awm_scope": 48, "aux_aim": 85, "free_look": 8 }
+      }
+    },
+    "ingame_menu_map": {
+      "aim_assist": "TẮT",
+      "aux_aim": "BẬT + kéo hết thanh độ nhạy ngắm phụ",
+      "aim_precision": "Rất chính xác (mức cao nhất)",
+      "fire_mode": "Hold",
+      "left_fire": "tắt",
+      "hit_hint": "tắt",
+      "show_player_outline": "tắt",
+      "hide_teammate_name": "bật",
+      "enemy_fire_hint": "bật",
+      "minimap": "bật",
+      "stacked_kill_mode": "bật",
+      "drag_zone": "toàn màn hình, chừa dải 15% mép phải"
+    }
+  },
+
+  "hud_layout": {
+    "anchor_map": { "1": "trái-trên", "2": "giữa-trên", "3": "phải-trên", "5": "phải-giữa", "7": "phải-dưới", "8": "giữa-dưới", "9": "giữa" },
+    "cluster": "phải-dưới, một ngón cái",
+    "hudauxaim":   { "dx": -550,   "dy": -275.5, "anchor": 5, "role": "ngắm phụ — gánh toàn bộ cơ chế, phải cao hơn cụm nút, trong tầm ngón cái, không che tâm" },
+    "hudfire":     { "dx": -332.86, "dy": 154.09, "anchor": 7, "scale": 1.153, "role": "cách nút ngắm 272px về trái" },
+    "hudsight":    { "dx": -60,    "dy": 353,    "anchor": 7, "scale": 1.167, "role": "thấp hơn nút bắn 199px" },
+    "hudjump":     { "dx": -60,    "dy": 223,    "anchor": 7 },
+    "hudcrouch":   { "dx": -60,    "dy": 74,     "anchor": 7 },
+    "hudcreep":    { "dx": -175,   "dy": 74,     "anchor": 7 },
+    "hudreload":   { "dx": -420,   "dy": 288,    "anchor": 7 },
+    "hudswapweaponquick": { "dx": -1407, "dy": 186.8, "anchor": 7, "alpha": 0.01, "role": "nút đổi súng tàng hình, thành vùng kéo phụ" },
+    "android_note": "540x1200: nút bắn góc phải-dưới, nút ngắm cách 1/4 bề ngang, ngắm phụ mép phải cao hơn nút bắn 1/3 màn hình, scale không quá 1.2"
+  },
+
+  "audio": { "sound_effect": 0.8, "kill_sound": 0.8, "game_voice": 0.8, "music": 0 },
+  "haptics": { "key_0": 1, "key_6": 1, "others": 0 },
+
+  "anti_cheat_stealth": {
+    "single_tool_only": true,
+    "forbidden_stack": ["overlay aimlock", "gfx tool", "mod apk", "trainer"],
+    "signal_stabilization": 0.98,
+    "randomize_curve_seed_per_burst": true,
+    "session_warmup_shots": 3,
+    "occasional_overshoot_pct": 0.03,
+    "sens_lock_mid_match": true,
+    "recalibrate_each_season": true
+  },
+
+  "safety_caps": {
+    "max_step_px": 3.5,
+    "max_total_pull_px": 26,
+    "min_ramp_ms": 75,
+    "tick_range_ms": [16, 22],
+    "max_pull_share_of_screen_pct": 2.0,
+    "min_pull_px_floor": 3
+  },
+
+  "calibration": {
+    "protocol": "training_ground_3_range",
+    "pass_threshold": "8/10 head",
+    "step_pct": 10,
+    "log": [
+      { "distance_m": 8,  "zone": "near", "head_hits": "__/10", "adjust": "" },
+      { "distance_m": 25, "zone": "mid",  "head_hits": "__/10", "adjust": "" },
+      { "distance_m": 50, "zone": "far",  "head_hits": "__/10", "adjust": "" }
+    ]
+  },
+
+  "install_steps": [
+    "Đóng hết app nền, để trống >400MB RAM",
+    "ZArchiver: tạo Android/data/com.garena.ffvn/files/ nếu chưa có",
+    "Chép VN.json vào đúng files/",
+    "Vào game, nhập độ nhạy theo preset manh",
+    "Tắt trợ ngắm, bật ngắm phụ, kéo hết thanh",
+    "Dựng HUD theo mục hud_layout",
+    "Đồ họa Smooth + High FPS + hạ độ phân giải + tắt bóng",
+    "Sân tập 8m/25m/50m, đạt 8/10 mới vào trận"
+  ],
+
+  "tuning": {
+    "vang_khi_xoay": "đổi preset sang can_bang",
+    "keo_khong_toi": "điểm đỏ +10, giữ nguyên ngắm phụ",
+    "nong_sau_10p": "preset thuan hoặc nghỉ 2 phút",
+    "do_not_touch": ["aux_aim", "fire_mode", "aim_precision"]
+  }
+}

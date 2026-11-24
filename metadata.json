@@ -1,0 +1,6 @@
+{
+  "name": "FFVN Config",
+  "description": "Trình chạy cấu hình độ nhạy, bản đồ HUD, kiểm tra RAM/nhiệt độ và nhật ký sân tập Free Fire VN từ tệp JSON.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
